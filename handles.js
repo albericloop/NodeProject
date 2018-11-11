@@ -13,7 +13,7 @@ module.exports = {
 	  	res.writeHead(200, {'Content-Type': 'text/plain'});
 
 	  	// Write a response content
-	  	res.end('You are on my first NodeJS web page! \n\nIf you want to know more about me, add /hello?name=Alberic in the URL! \n\nType /hello?name= with your name and a message will appear!');
+	  	res.end('You are on my first NodeJS web page! \n\nIf you want to know more about me, add /hello?name=Alberic to the URL! \n\nType /hello?name= with your name and a message will appear!');
 
 	}else if(page == "/hello" && 'name' in parameter){
 		//if the two conditions are ok
