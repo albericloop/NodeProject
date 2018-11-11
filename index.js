@@ -1,6 +1,6 @@
 const http = require('http')
 const url = require('url')
-const handlesFile = require('./handles.js')
+const handles = require('./handles')
 
 // Declare an http server
-http.createServer(handlesFile.server).listen(8081)
+http.createServer(handles.serverHandle).listen(8080)
