@@ -14,7 +14,13 @@ class App {
       res.json({
         message: 'Hello World!'
       })
-    })
+    }),
+    router.get('/add/:name', (req, res) => {
+      req.params.name
+      res.json({
+        message: 'Hello World add!'
+      })
+    }),
     this.express.use('/', router)
   }
 }
