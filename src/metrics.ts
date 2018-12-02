@@ -1,5 +1,4 @@
-import LevelDb = require('./leveldb')
-import WriteStream from 'level-ws'
+import { LevelDb } from './leveldb'
 import WriteStream from 'level-ws'
 
 export class Metric {
@@ -13,9 +12,9 @@ export class Metric {
 }
 
 export class MetricsHandler {
-  private db: any
 
-  const ws = WriteStream(db)
+  private db: any
+  ws = WriteStream(this.db)
 
   constructor(dbPath: string) {
     this.db = LevelDb.open(dbPath)
@@ -32,7 +31,7 @@ export class MetricsHandler {
   }
 
   static get(callback: (error: Error | null, result?: Metric[]) => void) {
-    const rs = db.createReadStream(...)
+    //const rs = db.createReadStream(...)
     const result = [
       new Metric('2013-11-04 14:00 UTC', 12),
       new Metric('2013-11-04 14:30 UTC', 15)
