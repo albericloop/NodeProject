@@ -1,4 +1,5 @@
 import {MetricsHandler} from './metrics'
+import {Metric} from './metrics'
 //import app from './App'
 import express = require('express')
 var bodyparser = require('body-parser');
@@ -26,6 +27,22 @@ app.get('/metrics', (req: any, res: any) => {
       throw err
     }
     res.json(result)
+  })
+})
+
+app.get('/metricssave', (req: any, res: any) => {
+  const met = [
+    new Metric(`${new Date('2013-11-04 14:00 UTC').getTime()}`, 12),
+    new Metric(`${new Date('2013-11-04 14:15 UTC').getTime()}`, 10),
+    new Metric(`${new Date('2013-11-04 14:30 UTC').getTime()}`, 8)
+  ]
+  const db = new MetricsHandler('./db')
+
+  db.save(0, met, (err: Error | null) => {
+    if (err) {
+      throw err
+    }
+    //res.json(result)
   })
 })
 /*
